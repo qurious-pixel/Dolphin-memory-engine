@@ -23,6 +23,11 @@ QString SConfig::getWatchModel() const
   return m_settings->value("watchModel", QString{}).toString();
 }
 
+bool SConfig::getAutoHook() const
+{
+  return m_settings->value("autoHook", true).toBool();
+}
+
 QByteArray SConfig::getMainWindowGeometry() const
 {
   return m_settings->value("mainWindowSettings/mainWindowGeometry", QByteArray{}).toByteArray();
@@ -63,6 +68,11 @@ int SConfig::getViewerUpdateTimerMs() const
   return m_settings->value("timerSettings/viewerUpdateTimerMs", 100).toInt();
 }
 
+int SConfig::getScannerShowThreshold() const
+{
+  return m_settings->value("scannerSettings/scannerShowThreshold", 1000).toInt();
+}
+
 int SConfig::getViewerNbrBytesSeparator() const
 {
   return m_settings->value("viewerSettings/nbrBytesSeparator", 1).toInt();
@@ -81,6 +91,11 @@ u32 SConfig::getMEM2Size() const
 void SConfig::setWatchModel(const QString& json)
 {
   m_settings->setValue("watchModel", json);
+}
+
+void SConfig::setAutoHook(const bool enabled)
+{
+  m_settings->setValue("autoHook", enabled);
 }
 
 void SConfig::setMainWindowGeometry(QByteArray const& geometry)
@@ -121,6 +136,11 @@ void SConfig::setScannerUpdateTimerMs(const int scannerUpdateTimerMs)
 void SConfig::setViewerUpdateTimerMs(const int viewerUpdateTimerMs)
 {
   m_settings->setValue("timerSettings/viewerUpdateTimerMs", viewerUpdateTimerMs);
+}
+
+void SConfig::setScannerShowThreshold(const int scannerShowThreshold)
+{
+  m_settings->setValue("scannerSettings/scannerShowThreshold", scannerShowThreshold);
 }
 
 void SConfig::setViewerNbrBytesSeparator(const int viewerNbrBytesSeparator)

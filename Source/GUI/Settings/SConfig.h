@@ -17,6 +17,7 @@ public:
   QByteArray getSplitterState() const;
 
   QString getWatchModel() const;
+  bool getAutoHook() const;
 
   int getTheme() const;
 
@@ -24,6 +25,7 @@ public:
   int getFreezeTimerMs() const;
   int getScannerUpdateTimerMs() const;
   int getViewerUpdateTimerMs() const;
+  int getScannerShowThreshold() const;
   u32 getMEM1Size() const;
   u32 getMEM2Size() const;
 
@@ -34,6 +36,7 @@ public:
   void setSplitterState(QByteArray const&);
 
   void setWatchModel(const QString& json);
+  void setAutoHook(bool enabled);
 
   void setTheme(const int theme);
 
@@ -41,6 +44,7 @@ public:
   void setFreezeTimerMs(const int freezeTimerMs);
   void setScannerUpdateTimerMs(const int scannerUpdateTimerMs);
   void setViewerUpdateTimerMs(const int viewerUpdateTimerMs);
+  void setScannerShowThreshold(int scannerShowThreshold);
   void setMEM1Size(const u32 mem1SizeReal);
   void setMEM2Size(const u32 mem2SizeReal);
 
