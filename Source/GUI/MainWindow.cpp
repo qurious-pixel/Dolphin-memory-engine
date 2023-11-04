@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 
 #include <QHBoxLayout>
+#include <QIcon>
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QShortcut>
@@ -19,6 +20,7 @@
 MainWindow::MainWindow()
 {
   setWindowTitle("Dolphin Memory Engine 0.8.0");
+  setWindowIcon(QIcon(":/logo.svg"));
   initialiseWidgets();
   makeLayouts();
   makeMenus();
@@ -98,6 +100,8 @@ void MainWindow::makeMenus()
 void MainWindow::initialiseWidgets()
 {
   m_scanner = new MemScanWidget();
+  m_scanner->setShowThreshold(
+      static_cast<size_t>(SConfig::getInstance().getScannerShowThreshold()));
   connect(m_scanner, &MemScanWidget::requestAddWatchEntry, this, &MainWindow::addWatchRequested);
   connect(m_scanner, &MemScanWidget::requestAddAllResultsToWatchList, this,
           &MainWindow::addAllResultsToWatchList);
@@ -374,6 +378,8 @@ void MainWindow::onOpenSettings()
       m_watcher->getFreezeTimer()->start(SConfig::getInstance().getFreezeTimerMs());
       m_viewer->getUpdateTimer()->start(SConfig::getInstance().getViewerUpdateTimerMs());
     }
+    m_scanner->setShowThreshold(
+        static_cast<size_t>(SConfig::getInstance().getScannerShowThreshold()));
   }
 }
 
