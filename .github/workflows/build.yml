@@ -2,8 +2,8 @@ name: Build
 
 on:
   push:
-    branches:
-      - master
+    #branches:
+      #- master
   pull_request:
     branches:
       - master
@@ -49,7 +49,7 @@ jobs:
           path: Source\bin\${{ matrix.configuration }}
 
   build-linux:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout code
@@ -86,8 +86,20 @@ jobs:
           cp ./Source/build/Dolphin-memory-engine ./Source/build/artifacts/
         shell: bash
 
+      - name: Package AppImage
+        run: |
+          chmod +x .github/assets/appimage.sh
+          .github/assets/appimage.sh
+        shell: bash
+        
       - name: Publish Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: linux-ubuntu-22.04-build
+          name: linux-ubuntu-20.04-binary
           path: Source/build/artifacts
+
+      - name: Publish Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-ubuntu-20.04-appimage
+          path: Dolphin-memory-engine.AppImage
