@@ -13,7 +13,7 @@ chmod a+x appimagetool linuxdeploy linuxdeployqt
 ARCH=x86_64 ./linuxdeploy --appdir=AppDir
 
 cp .github/assets/"${BINNAME}".png AppDir/
-cp .github/assets/"${BINNAME".desktop AppDir/
+cp .github/assets/"${BINNAME}".desktop AppDir/
 mkdir -p AppDir/usr/share/applications && cp ./AppDir/"${BINNAME}".desktop ./AppDir/usr/share/applications
 mkdir -p AppDir/usr/share/icons && cp ./AppDir/"${BINNAME}".png ./AppDir/usr/share/icons
 mkdir -p AppDir/usr/share/icons/hicolor/512x512/apps && cp ./AppDir/"${BINNAME}".png ./AppDir/usr/share/icons/hicolor/512x512/apps
