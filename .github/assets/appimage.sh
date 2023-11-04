@@ -4,9 +4,8 @@ curl -sSfL https://github.com/linuxdeploy/linuxdeploy/releases/download/continuo
 curl -sSfL https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage -o linuxdeployqt
 
 mkdir -p AppDir/usr/bin
-cp Source/build/"${BINNAME}" AppDir/usr/bin/
-cp ui/rpcsx-ui AppDir/usr/bin/
-ln -sr AppDir/usr/bin/Dolphin-memory-engine AppDir/AppRun
+cp Source/build/artifacts AppDir/usr/bin
+ln -sr AppDir/usr/bin/"${BINNAME}" AppDir/AppRun
 chmod +x AppDir/usr/bin
 chmod +x AppDir/AppRun
 
