@@ -3,7 +3,7 @@ curl -sSfL https://github.com/AppImage/AppImageKit/releases/download/continuous/
 curl -sSfL https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage -o linuxdeploy
 curl -sSfL https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage -o linuxdeployqt
 
-mkdir -p AppDir/usr/bin
+mkdir -p AppDir/usr/
 cp -r Source/build/artifacts AppDir/usr/bin
 ln -sr AppDir/usr/bin/"${BINNAME}" AppDir/AppRun
 chmod +x AppDir/usr/bin
