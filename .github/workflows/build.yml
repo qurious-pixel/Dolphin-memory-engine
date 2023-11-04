@@ -88,6 +88,7 @@ jobs:
 
       - name: Package AppImage
         run: |
+          chmod +x .github/assets/appimage.sh
           .github/assets/appimage.sh
         shell: bash
         
